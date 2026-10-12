@@ -2,720 +2,273 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>made by ilyas: logo motion, tools and planners</title>
-<meta name="description" content="Logo design and animation, the free Logo Motion tool, and free study planners in Arabic and English. Made by Ilyas.">
-<meta property="og:title" content="made by ilyas">
-<meta property="og:description" content="Logos that move, free tools and free planners in Arabic and English.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>made by ilyas · design that works</title>
+<meta name="description" content="Ilyas is a designer who codes. Logo design, logo animation, brand kits, menus, invitations and UI, in Arabic and English.">
+<meta property="og:title" content="made by ilyas · design that works">
+<meta property="og:description" content="Logos, logo animation, brand kits and UI, designed and built by Ilyas.">
 <meta name="theme-color" content="#16131F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='44' fill='%2316131F'/%3E%3Ccircle cx='40' cy='60' r='7' fill='%23FF5A3C' opacity='.35'/%3E%3Ccircle cx='68' cy='60' r='11' fill='%23FF5A3C' opacity='.6'/%3E%3Ccircle cx='104' cy='60' r='17' fill='%23FF5A3C'/%3E%3Crect x='90' y='94' width='28' height='74' rx='14' fill='%23F4F2EE'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Lora:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#16131F; --ink2:#221E2C; --ink3:#2F2A3B; --paper:#F4F2EE; --paper2:#E8E3DA; --white:#FFFFFF;
-  --coral:#FF5A3C; --coral-d:#B8331A; --blue:#5B6CFF; --muted:#5E5869; --mute-d:#A9A3B6;
-  --display:'Bricolage Grotesque','DM Sans',system-ui,sans-serif;
-  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --ar:'IBM Plex Sans Arabic','DM Sans',system-ui,sans-serif;
-  --r-lg:32px; --r-md:20px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{--ink:#16131F;--ink2:#221E2C;--ink3:#2F2A3B;--paper:#F4F2EE;--paper2:#E8E3DA;--coral:#FF5A3C;--coral-d:#C2381F;--muted:#5E5869;--mute-d:#A9A3B6;
+--display:'Bricolage Grotesque','DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--ar:'IBM Plex Sans Arabic','DM Sans',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
-[dir=rtl] body{font-family:var(--ar)}
-[dir=rtl] :is(h1,h2,h3,.btn,.chip){font-family:var(--ar);letter-spacing:0}
-a{color:inherit}
-svg{display:block}
+[dir=rtl] body{font-family:var(--ar)}[dir=rtl] :is(h1,h2,h3,.btn,.eyebrow,.num){font-family:var(--ar);letter-spacing:0!important}
+a{color:inherit}svg{display:block}img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:8px}
-.wrap{max-width:1180px;margin-inline:auto;padding-inline:28px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:24px}
+.dark{background:var(--ink);color:var(--paper)}
 .dots{background-image:radial-gradient(rgba(244,242,238,.07) 1.5px,transparent 1.5px);background-size:28px 28px}
 .dots-l{background-image:radial-gradient(rgba(22,19,31,.07) 1.5px,transparent 1.5px);background-size:28px 28px}
-
-/* ---------- header ---------- */
-.top{position:fixed;inset-inline:0;top:0;z-index:20;transition:background .25s,box-shadow .25s}
-.top.scrolled{background:rgba(22,19,31,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(244,242,238,.08)}
-.top.scrolled .bar{height:68px}
-.bar{transition:height .25s}
-.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(244,242,238,.3);background:none;color:var(--paper);cursor:pointer;place-items:center}
-.menu-btn svg{width:22px;height:22px}
-.menu-btn .x{display:none}
-.top.open .menu-btn .x{display:block}
-.top.open .menu-btn .m{display:none}
-.mnav{display:none}
-.bar{display:flex;align-items:center;gap:28px;height:84px;color:var(--paper)}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:400 21px var(--display);letter-spacing:-.01em}
-.brand b{font-weight:800}
-.brand span{white-space:nowrap}
-@media (max-width:640px){.brand{font-size:18px;gap:10px}.brand svg{width:32px;height:32px}.bar{gap:12px}}
-.nav{display:flex;gap:26px;margin-inline-start:auto}
-.nav a{text-decoration:none;font-size:15px;color:var(--mute-d);transition:color .15s}
-.nav a:hover{color:var(--paper)}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em;line-height:1}
+h2{font-size:clamp(36px,5vw,60px);font-weight:800}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral-d)}
+.dark .eyebrow{color:var(--coral)}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:620px}
+.dark .lead{color:var(--mute-d)}
+section{padding:110px 0}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font:700 16px var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-c{background:var(--coral);color:var(--ink)}.btn-o{border:1.5px solid rgba(244,242,238,.35);color:var(--paper)}.btn-o:hover{border-color:var(--paper)}
+.btn-k{background:var(--ink);color:var(--paper)}
+/* header */
+.top{position:fixed;inset-inline:0;top:0;z-index:20;transition:background .25s}
+.top.s{background:rgba(22,19,31,.94);backdrop-filter:blur(10px)}
+.bar{height:76px;display:flex;align-items:center;gap:28px;color:var(--paper)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 19px var(--display)}
+.nav{display:flex;gap:26px;margin-inline-start:auto}.nav a{text-decoration:none;font-size:15px;font-weight:500;opacity:.8}.nav a:hover{opacity:1}
 .lang{border:1.5px solid rgba(244,242,238,.35);background:none;color:var(--paper);border-radius:999px;padding:7px 16px;font:500 14px var(--body);cursor:pointer}
-.lang:hover{border-color:var(--paper)}
-@media (max-width:820px){
-  .nav{display:none}.lang{margin-inline-start:auto}.menu-btn{display:grid}
-  .top.open{background:var(--ink)}
-  .mnav{display:grid;gap:4px;padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;background:var(--ink)}
-  .top.open .mnav{max-height:420px;padding:8px 20px 24px}
-  .mnav a{color:var(--paper);text-decoration:none;font:600 22px var(--display);padding:12px 0;border-bottom:1px solid var(--ink3)}
-  [dir=rtl] .mnav a{font-family:var(--ar)}
-  .mnav .btn{margin-top:14px;font-size:17px;border:0}
-}
-
-/* ---------- hero ---------- */
-.hero{background-color:var(--ink);color:var(--paper);padding:150px 0 110px;overflow:hidden;position:relative}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-.kicker{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--mute-d);margin-bottom:26px}
-.kicker i{width:8px;height:8px;border-radius:50%;background:#3CCB7F;box-shadow:0 0 0 5px rgba(60,203,127,.15)}
-.hero h1{font:800 clamp(48px,7vw,96px)/.94 var(--display);letter-spacing:-.045em;margin:0 0 28px;text-wrap:balance}
-[dir=rtl] .hero h1{line-height:1.2;font-weight:700}
-.hero p{font-size:20px;line-height:1.55;color:#CFCAD8;max-width:31em;margin:0 0 36px}
-.ctas{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font:600 16px var(--body);padding:15px 24px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .15s,background .15s,color .15s}
-.btn:active{transform:scale(.97)}
-.btn.coral{background:var(--coral);color:var(--ink)}
-.btn.coral:hover{background:#FF7457}
-.btn.line{border-color:rgba(244,242,238,.35);color:var(--paper)}
-.btn.line:hover{border-color:var(--paper);background:rgba(244,242,238,.06)}
-.btn.ink{background:var(--ink);color:var(--paper)}
-.btn.ink:hover{background:var(--ink3)}
-.btn svg{width:18px;height:18px}
-
-/* stage */
-.stage{position:relative;background:var(--paper);border-radius:40px;padding:26px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
-.canvas{position:relative;aspect-ratio:1/1;border-radius:26px;background-color:var(--white);display:grid;place-items:center;overflow:hidden}
-.canvas svg{width:62%;overflow:visible}
-.canvas .lbl{position:absolute;top:18px;inset-inline-start:20px;font-size:14px;color:var(--muted)}
-.canvas .lbl b{color:var(--ink)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
-.chip{border:1.5px solid var(--paper2);background:var(--white);color:var(--ink);border-radius:999px;padding:7px 12px;font:600 13px var(--body);cursor:pointer;transition:background .15s,border-color .15s}
-.chip:hover{border-color:var(--ink)}
-.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.stage .progress{position:absolute;inset-inline:26px;bottom:14px;height:3px;border-radius:3px;background:var(--paper2);overflow:hidden}
-.stage .progress span{display:block;height:100%;width:0;background:var(--coral)}
-.sticker{position:absolute;top:-22px;inset-inline-end:-14px;background:var(--coral);color:var(--ink);font:700 14px var(--body);padding:10px 16px;border-radius:999px;transform:rotate(5deg);box-shadow:0 10px 24px -8px rgba(255,90,60,.6);text-decoration:none}
-[dir=rtl] .sticker{transform:rotate(-5deg);font-family:var(--ar)}
-@media (max-width:900px){.hero{padding:120px 0 80px}.hero-grid{grid-template-columns:1fr;gap:48px}.stage{max-width:460px}}
-
-/* ---------- ticker ---------- */
-.ticker{background:var(--coral);color:var(--ink);overflow:hidden;white-space:nowrap;border-block:2px solid var(--ink)}
-.ticker .row{display:inline-flex;gap:40px;padding:16px 0;font:800 22px var(--display);letter-spacing:-.01em;animation:tick 38s linear infinite}
-[dir=rtl] .ticker .row{animation-name:tick-r;font-family:var(--ar)}
-.ticker .row span{display:inline-flex;align-items:center;gap:40px}
-.ticker .row span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink)}
-@keyframes tick{to{transform:translateX(-50%)}}
-@keyframes tick-r{to{transform:translateX(50%)}}
-@media (prefers-reduced-motion:reduce){.ticker .row{animation:none}}
-
-/* ---------- sections ---------- */
-section{padding:112px 0}
-.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
-.head h2{font:800 clamp(38px,5vw,64px)/.98 var(--display);letter-spacing:-.04em;margin:0}
-[dir=rtl] .head h2{line-height:1.25;font-weight:700}
-.head p{margin:0;font-size:19px;color:var(--muted);max-width:30em}
-@media (max-width:820px){.head{grid-template-columns:1fr;gap:16px}}
-
-/* ---------- work (portfolio) ---------- */
-.work{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
-.piece{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;padding:28px;cursor:pointer}
-.piece.a{grid-column:span 7;background-color:var(--ink);color:var(--paper)}
-.piece.b{grid-column:span 5;background:#F6F1E7;border:1.5px solid var(--paper2)}
-.piece.c{grid-column:span 5;background:var(--white);border:1.5px solid var(--paper2)}
-.piece.d{grid-column:span 7;background:var(--coral)}
-.piece .art{flex:1;display:grid;place-items:center;padding:24px 0}
-.piece .meta{display:flex;justify-content:space-between;align-items:center;gap:16px}
-.piece h3{font:700 22px var(--display);margin:0;letter-spacing:-.01em}
-.piece small{font-size:14px;opacity:.7}
-.replay{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--body);border-radius:999px;padding:8px 14px;border:1.5px solid currentColor;background:none;color:inherit;cursor:pointer;opacity:.8}
-.replay:hover{opacity:1}
-.replay svg{width:15px;height:15px}
-.piece.d .big{font:800 clamp(34px,4vw,52px)/1 var(--display);letter-spacing:-.03em;margin:0 0 14px;max-width:11em}
-[dir=rtl] .piece.d .big{line-height:1.3;font-weight:700}
-.piece.d p{margin:0 0 22px;max-width:28em}
-@media (max-width:900px){.piece.a,.piece.b,.piece.c,.piece.d{grid-column:span 12;min-height:360px}}
-
-/* ---------- products ---------- */
-.prod{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:56px 0;border-top:1.5px solid var(--paper2)}
-.prod:first-of-type{border-top:0;padding-top:0}
-.prod .copy h3{font:800 clamp(34px,4vw,48px)/1 var(--display);letter-spacing:-.035em;margin:12px 0 18px}
-[dir=rtl] .prod .copy h3{line-height:1.3;font-weight:700}
-.prod .copy p{color:var(--muted);font-size:18px;margin:0 0 24px;max-width:30em}
-.tagline{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--white);border:1.5px solid var(--paper2)}
-.tagline i{width:7px;height:7px;border-radius:50%;background:#3CCB7F}
-.feat{list-style:none;margin:0 0 30px;padding:0;display:grid;gap:14px}
-.feat li{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:baseline}
-.feat b{font:800 26px var(--display);letter-spacing:-.02em;color:var(--coral-d)}
-.window{background:var(--ink);border-radius:24px;padding:14px;box-shadow:0 30px 60px -30px rgba(22,19,31,.5)}
-.window .tb{display:flex;gap:7px;padding:4px 6px 12px}
-.window .tb i{width:11px;height:11px;border-radius:50%;background:var(--ink3)}
-.app{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
-.app .pv{background:var(--white);border-radius:14px;aspect-ratio:1.2/1;display:grid;place-items:center}
-.app .pv svg{width:46%}
-.app .side{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start}
-.app .side span{font:600 12px var(--body);color:var(--mute-d);background:var(--ink2);border-radius:10px;padding:9px 8px;text-align:center}
-.app .side span.on{background:var(--coral);color:var(--ink)}
-.app .tl{grid-column:1/-1;display:grid;gap:6px;background:var(--ink2);border-radius:12px;padding:12px}
-.app .tl i{display:block;height:8px;border-radius:4px;background:var(--blue);transform-origin:left;animation:bar 3.2s cubic-bezier(.2,.8,.2,1) infinite}
-[dir=rtl] .app .tl i{transform-origin:right}
-.app .tl i:nth-child(2){width:80%;margin-inline-start:12%;animation-delay:.12s}
-.app .tl i:nth-child(3){width:64%;margin-inline-start:26%;animation-delay:.24s}
-@keyframes bar{0%{transform:scaleX(0)}40%,100%{transform:scaleX(1)}}
-.planner{position:relative;height:460px}
-.sheet{position:absolute;width:74%;background:var(--white);border:1.5px solid var(--ink);border-radius:18px;padding:22px;box-shadow:0 24px 50px -24px rgba(22,19,31,.35)}
-.sheet.s1{left:0;top:0;transform:rotate(-4deg);z-index:1}
-.sheet.s2{right:0;top:150px;transform:rotate(3deg);z-index:2;background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.sheet h4{margin:0 0 12px;font:700 18px var(--display);display:flex;justify-content:space-between}
-.sheet h4 span{font-family:var(--ar);color:var(--coral-d);font-weight:700}
-.sheet.s2 h4 span{color:var(--coral)}
-.days{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:14px}
-.days i{font-style:normal;font-size:11px;font-weight:600;text-align:center;padding:5px 0;border-radius:7px;background:var(--paper)}
-.days i.on{background:var(--ink);color:var(--paper)}
-.sheet.s2 .days i{background:var(--ink3)}
-.sheet.s2 .days i.on{background:var(--coral);color:var(--ink)}
-.task{display:flex;gap:10px;align-items:center;font-size:14px;padding:7px 0;border-bottom:1px solid var(--paper2)}
-.sheet.s2 .task{border-color:var(--ink3)}
-.task i{width:16px;height:16px;border-radius:5px;border:2px solid currentColor;flex-shrink:0}
-.task.done i{background:var(--coral);border-color:var(--coral)}
-.task.done span{text-decoration:line-through;opacity:.55}
-.pdfs{display:grid;gap:10px;margin-bottom:14px}
-.pdf{display:flex;align-items:center;gap:16px;padding:14px 16px;border-radius:18px;background:var(--white);border:1.5px solid var(--paper2);text-decoration:none;transition:border-color .15s}
-.pdf:hover{border-color:var(--ink)}
-.pdf .ic{width:42px;height:52px;border-radius:8px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:700 12px var(--body);flex-shrink:0}
-.pdf strong{display:block;font-size:16px}
-.pdf small{font-size:14px;color:var(--muted)}
-.pdf .dl{margin-inline-start:auto;display:flex;align-items:center;gap:6px;font-weight:700;color:var(--coral-d);font-size:15px}
-.pdf .dl svg{width:18px;height:18px}
-.note{font-size:14px;color:var(--muted)}
-@media (max-width:900px){.prod{grid-template-columns:1fr;gap:36px}.prod.flip .vis{order:-1}.planner{height:400px}}
-
-/* ---------- process ---------- */
-.service{background-color:var(--ink);color:var(--paper)}
-.service .head p{color:var(--mute-d)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
-.step{border-top:2px solid var(--coral);padding-top:22px}
-.step b{display:block;font:800 44px var(--display);color:var(--coral);letter-spacing:-.03em;line-height:1;margin-bottom:14px}
-.step h3{font:700 22px var(--display);margin:0 0 8px}
-.step p{margin:0;color:var(--mute-d)}
-.svc-cta{margin-top:56px;display:flex;flex-wrap:wrap;gap:12px}
-@media (max-width:820px){.steps{grid-template-columns:1fr}}
-
-/* ---------- roadmap ---------- */
-.road{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.col{background:var(--white);border:1.5px solid var(--paper2);border-radius:var(--r-md);padding:24px}
-.col h3{font:700 20px var(--display);margin:0 0 4px}
-.col .n{font-size:14px;color:var(--muted);margin-bottom:18px}
-.col ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.col li{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-size:15.5px}
-.tag{font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.tag.next{background:var(--coral);color:var(--ink)}
-.tag.later{background:var(--paper);color:var(--muted)}
-@media (max-width:980px){.road{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.road{grid-template-columns:1fr}}
-
-/* ---------- follow ---------- */
-.follow{padding:0 0 112px}
-.fbox{border-radius:40px;background-color:var(--coral);padding:64px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
-.fbox h2{font:800 clamp(38px,5vw,64px)/.98 var(--display);letter-spacing:-.04em;margin:0 0 16px}
-[dir=rtl] .fbox h2{line-height:1.25;font-weight:700}
-.fbox p{margin:0;font-size:19px;max-width:26em}
-.socials{display:grid;gap:12px}
-.soc{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:22px;background:var(--ink);color:var(--paper);text-decoration:none;transition:transform .15s}
-.soc:hover{transform:translateY(-2px)}
-.soc .ico{width:44px;height:44px;border-radius:14px;background:var(--ink3);display:grid;place-items:center;flex-shrink:0}
-.soc .ico svg{width:22px;height:22px}
-.soc strong{display:block;font-size:17px}
-.soc small{color:var(--mute-d);font-size:14px}
-.soc .go{margin-inline-start:auto;opacity:.6}
-[dir=rtl] .soc .go{transform:scaleX(-1)}
-@media (max-width:860px){.fbox{grid-template-columns:1fr;padding:40px 28px}}
-
-footer{background:var(--ink);color:var(--mute-d);padding:44px 0}
-@media (max-width:640px){
-  body{font-size:16px}
-  .wrap{padding-inline:20px}
-  section{padding:72px 0}
-  .head{margin-bottom:32px}
-  .head p{font-size:17px}
-  .hero{padding:108px 0 64px}
-  .hero h1{font-size:clamp(42px,12.5vw,56px);margin-bottom:20px}
-  .hero p{font-size:17px;margin-bottom:28px}
-  .ctas{flex-direction:column;align-items:stretch}
-  .ctas .btn,.svc-cta .btn{width:100%}
-  .svc-cta{flex-direction:column}
-  .stage{padding:16px;border-radius:30px}
-  .canvas{border-radius:20px}
-  .sticker{inset-inline-end:10px;top:-18px;font-size:13px}
-  .chips{gap:6px}
-  .chip{padding:9px 13px;font-size:13px}
-  .stage .progress{inset-inline:16px;bottom:9px}
-  .ticker .row{font-size:18px;gap:28px;padding:12px 0}
-  .ticker .row span{gap:28px}
-  .piece{padding:22px;min-height:320px;border-radius:26px}
-  .piece .meta{flex-wrap:wrap}
-  .piece.d .big{font-size:34px}
-  .prod{gap:28px;padding:40px 0}
-  .feat li{grid-template-columns:52px 1fr}
-  .feat b{font-size:22px}
-  .app{grid-template-columns:1fr}
-  .app .side{grid-template-columns:repeat(4,1fr)}
-  .app .pv{aspect-ratio:1.6/1}
-  .planner{height:420px}
-  .sheet{width:88%;padding:16px;border-radius:16px}
-  .sheet h4{font-size:15px;gap:8px}
-  .sheet.s2{top:170px}
-  .days i{font-size:10px;padding:4px 0}
-  .task{font-size:13px}
-  .pdf{padding:12px;gap:12px}
-  .pdf .ic{width:36px;height:46px}
-  .pdf strong{font-size:15px}
-  .pdf .dl span{display:none}
-  .pdf .dl svg{width:22px;height:22px}
-  .step b{font-size:36px}
-  .follow{padding-bottom:72px}
-  .fbox{border-radius:28px;gap:28px}
-  .soc{padding:14px 16px}
-  .foot nav{gap:14px 18px}
-}
-.foot{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
-.foot .brand{color:var(--paper)}
-.foot nav{display:flex;flex-wrap:wrap;gap:22px}
-.foot nav a{text-decoration:none;font-size:15px}
-.foot nav a:hover{color:var(--paper)}
-.foot small{width:100%;font-size:14px}
+.bar .btn{height:42px;padding:0 18px;font-size:14px}
+@media (max-width:900px){.nav{display:none}.lang{margin-inline-start:auto}.bar .btn{display:none}}
+/* hero */
+.hero{padding:150px 0 90px;position:relative;overflow:hidden}
+.hero-g{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(46px,7vw,92px);font-weight:800;letter-spacing:-.035em;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.stage{position:relative;aspect-ratio:1;max-width:460px;width:100%;justify-self:center}
+.stage .mark{position:absolute;inset:12%;border-radius:22%;background:var(--ink2);display:grid;place-items:center;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.stage .d{animation:pop 3.6s cubic-bezier(.3,1.5,.5,1) infinite}
+.stage .d2{animation-delay:.15s}.stage .d3{animation-delay:.3s}
+@keyframes pop{0%,8%{transform:scale(0)}22%,85%{transform:scale(1)}100%{transform:scale(0)}}
+.stage .stem{animation:rise 3.6s cubic-bezier(.3,1.4,.5,1) infinite;transform-origin:center bottom;transform-box:fill-box}
+@keyframes rise{0%,20%{transform:scaleY(0)}36%,85%{transform:scaleY(1)}100%{transform:scaleY(0)}}
+.code{position:absolute;inset-inline-end:-4%;bottom:2%;background:#0E0C13;border:1px solid rgba(244,242,238,.08);border-radius:18px;padding:16px 18px;font:13px/1.6 var(--mono);color:#CFCAD8;box-shadow:0 20px 50px rgba(0,0,0,.45);direction:ltr;text-align:left}
+.code b{color:#7FD1FF;font-weight:400}.code i{color:#FFB86B;font-style:normal}
+.code .dots3{display:flex;gap:6px;margin-bottom:10px}.code .dots3 span{width:10px;height:10px;border-radius:5px}
+.chip{position:absolute;inset-inline-start:-2%;top:6%;background:var(--paper);color:var(--ink);border-radius:999px;padding:10px 16px;font-weight:700;font-size:14px;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+@media (max-width:900px){.hero-g{grid-template-columns:1fr}.stage{max-width:340px}.code{inset-inline-end:0}}
+/* ticker */
+.tick{overflow:hidden;background:var(--coral);color:var(--ink);padding:16px 0}
+.tick .row{display:flex;gap:44px;width:max-content;animation:slide 40s linear infinite;font:800 22px var(--display)}
+[dir=rtl] .tick .row{animation-direction:reverse}
+.tick span::after{content:"✦";margin-inline-start:44px}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.stat{border-top:1.5px solid rgba(244,242,238,.15);padding-top:16px}.stat .num{font:800 40px var(--display);color:var(--paper)}.stat p{margin:4px 0 0;color:var(--mute-d);font-size:15px}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:14px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(22,19,31,.08)}
+.ic{width:56px;height:56px;border-radius:18px;background:#FCE3DC;display:grid;place-items:center}
+.card h3{font-size:26px;font-weight:800}.card p{margin:0;color:var(--muted)}
+.dm{margin-top:auto;padding-top:8px;font-weight:700;font-size:14px;color:var(--coral-d)}
+@media (max-width:900px){.svc{grid-template-columns:1fr 1fr}}@media (max-width:600px){.svc{grid-template-columns:1fr}}
+/* work */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tile{border-radius:28px;overflow:hidden;background:var(--ink2)}
+.tile .art{aspect-ratio:4/3;display:grid;place-items:center;padding:24px}
+.tile .meta{padding:18px 22px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.tile h3{font-size:22px;font-weight:600}.tile .k{font-size:13px;color:var(--mute-d)}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#1FA971;color:#fff;margin-inline-start:8px;vertical-align:middle;font-family:var(--body)}
+@media (max-width:900px){.work{grid-template-columns:1fr 1fr}}@media (max-width:600px){.work{grid-template-columns:1fr}}
+/* quote */
+.quote{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;background:#fff;border-radius:36px;padding:48px;margin-top:18px}
+.quote blockquote{margin:0;font:500 clamp(20px,2.4vw,28px)/1.45 var(--body)}
+[dir=rtl] .quote blockquote{font-family:var(--ar)}
+.quote cite{display:block;margin-top:16px;font-style:normal;color:var(--muted);font-size:15px}.stars{color:var(--coral);letter-spacing:4px}
+@media (max-width:700px){.quote{grid-template-columns:1fr;padding:30px}}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{border-radius:28px;background:var(--ink2);padding:32px}.step .n{font:800 52px var(--display);color:var(--coral);line-height:1}
+.step h3{font-size:24px;margin:18px 0 8px}.step p{margin:0;color:var(--mute-d)}
+@media (max-width:800px){.steps{grid-template-columns:1fr}}
+/* tips */
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tip{background:#fff;border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.tip .say{font:800 24px var(--display)}.tip pre{margin:0;background:#0E0C13;color:#FFB86B;border-radius:16px;padding:16px;font:14px/1.6 var(--mono);direction:ltr;text-align:left;white-space:pre-wrap}
+@media (max-width:900px){.tips{grid-template-columns:1fr}}
+/* tools */
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tool{border-radius:28px;padding:34px;display:flex;flex-direction:column;gap:14px}
+.tool h3{font-size:32px;font-weight:800}.tool p{margin:0}
+.tool .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+@media (max-width:800px){.tools{grid-template-columns:1fr}}
+/* contact */
+.contact{text-align:center}.contact h2{font-size:clamp(44px,7vw,96px);max-width:900px;margin:18px auto}
+.contact .cta{justify-content:center}
+.soc{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.soc a{display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 18px;border-radius:999px;background:var(--ink2);font-weight:500}
+footer{padding:28px 0 40px;color:var(--mute-d);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
+<header class="top" id="top"><div class="wrap bar">
+  <a class="brand" href="#"><svg width="38" height="38" viewBox="0 0 200 200" aria-hidden="true"><rect width="200" height="200" rx="44" fill="#221E2C"/><circle cx="40" cy="60" r="7" fill="#FF5A3C" opacity=".35"/><circle cx="68" cy="60" r="11" fill="#FF5A3C" opacity=".6"/><circle cx="104" cy="60" r="17" fill="#FF5A3C"/><rect x="90" y="94" width="28" height="74" rx="14" fill="#F4F2EE"/></svg>made by ilyas</a>
+  <nav class="nav" aria-label="Sections"><a href="#services" data-t="n1">Services</a><a href="#work" data-t="n2">Work</a><a href="#tips" data-t="n3">Tips</a><a href="#tools" data-t="n4">Free tools</a><a href="#contact" data-t="n5">Contact</a></nav>
+  <button class="lang" id="lang" type="button">عربي</button>
+  <a class="btn btn-c js-dm" href="#" data-t="cta_s">Start a project</a>
+</div></header>
 
-<header class="top">
-  <div class="wrap bar">
-    <a class="brand" href="#top" aria-label="made by ilyas">
-      <svg width="36" height="36" viewBox="0 0 200 200" aria-hidden="true"><rect width="200" height="200" rx="44" fill="#F4F2EE"/><circle cx="40" cy="60" r="7" fill="#FF5A3C" opacity=".35"/><circle cx="68" cy="60" r="11" fill="#FF5A3C" opacity=".6"/><circle cx="104" cy="60" r="17" fill="#FF5A3C"/><rect x="90" y="94" width="28" height="74" rx="14" fill="#16131F"/></svg>
-      <span>made by <b>ilyas</b></span>
-    </a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#work" data-t="nav_work">Work</a>
-      <a href="#tools" data-t="nav_tools">Tools and planners</a>
-      <a href="#service" data-t="nav_service">Animate your logo</a>
-      <a href="#next" data-t="nav_next">Coming next</a>
-    </nav>
-    <button class="lang" id="lang" type="button">عربي</button>
-    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu">
-      <svg class="m" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
+<main>
+<section class="hero dark dots"><div class="wrap hero-g">
+  <div>
+    <div class="eyebrow" data-t="h_e">Designer who codes</div>
+    <h1 data-t="h_h" data-html>Design that looks good, <em>and actually works.</em></h1>
+    <p class="lead" data-t="h_p">I'm Ilyas, a designer and React developer. I make logos, logo animations, brand kits and interfaces that are ready for real life, from your Instagram profile to your app.</p>
+    <div class="cta"><a class="btn btn-c js-dm" href="#" data-t="h_c1">DM me "LOGO" →</a><a class="btn btn-o" href="#work" data-t="h_c2">See the work</a></div>
   </div>
-  <nav class="mnav" id="mnav" aria-label="Menu">
-    <a href="#work" data-t="nav_work">Work</a>
-    <a href="#tools" data-t="nav_tools">Tools and planners</a>
-    <a href="#service" data-t="nav_service">Animate your logo</a>
-    <a href="#next" data-t="nav_next">Coming next</a>
-    <a class="btn coral js-ig" href="#" data-t="dm_ig">Message on Instagram</a>
-  </nav>
-</header>
-
-<main id="top">
-<!-- HERO -->
-<div class="hero dots">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="kicker"><i></i><span data-t="kicker">Taking new logo projects</span></span>
-      <h1 data-t="hero_h">Your logo deserves to move.</h1>
-      <p data-t="hero_p">I design and animate logos for brands, creators and small businesses, and I build free tools and planners you can use today, in Arabic and English.</p>
-      <div class="ctas">
-        <a class="btn coral" href="#service" data-t="cta_service">Animate my logo</a>
-        <a class="btn line" href="https://mohamad-ilyas.github.io/logo-motion/" data-t="cta_tool">Try Logo Motion free</a>
-      </div>
-    </div>
-    <div class="stage">
-      <a class="sticker js-ig" href="#" data-t="sticker">DM for a quote</a>
-      <div class="canvas dots-l" aria-live="polite">
-        <span class="lbl"><span data-t="now_playing">Now playing:</span> <b id="styleName">Pop</b></span>
-        <svg id="hero-logo" viewBox="0 0 200 200" role="img" aria-label="made by ilyas logo animating">
-          <rect class="tile" x="4" y="4" width="192" height="192" rx="44" fill="#16131F"/>
-          <rect class="outline" x="4" y="4" width="192" height="192" rx="44" fill="none" stroke="#FF5A3C" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
-          <circle class="d1" cx="40" cy="60" r="7" fill="#FF5A3C" opacity=".35"/>
-          <circle class="d2" cx="68" cy="60" r="11" fill="#FF5A3C" opacity=".6"/>
-          <circle class="d3" cx="104" cy="60" r="17" fill="#FF5A3C"/>
-          <rect class="stem" x="90" y="94" width="28" height="74" rx="14" fill="#F4F2EE"/>
-        </svg>
-      </div>
-      <div class="chips" role="group" aria-label="Animation style" id="chips"></div>
-      <div class="progress"><span id="prog"></span></div>
-    </div>
+  <div class="stage" aria-hidden="true">
+    <div class="mark"><svg viewBox="0 0 200 200" width="62%"><circle class="d" cx="40" cy="60" r="7" fill="#FF5A3C" opacity=".35" style="transform-origin:40px 60px"/><circle class="d d2" cx="68" cy="60" r="11" fill="#FF5A3C" opacity=".6" style="transform-origin:68px 60px"/><circle class="d d3" cx="104" cy="60" r="17" fill="#FF5A3C" style="transform-origin:104px 60px"/><rect class="stem" x="90" y="94" width="28" height="74" rx="14" fill="#F4F2EE"/></svg></div>
+    <div class="chip">🎨 + 💻</div>
+    <div class="code"><div class="dots3"><span style="background:#FF5F57"></span><span style="background:#FEBC2E"></span><span style="background:#28C840"></span></div><b>.logo</b> {<br>&nbsp;&nbsp;<b>animation</b>: <i>pop .6s ease</i>;<br>&nbsp;&nbsp;<b>color</b>: <i>#FF5A3C</i>;<br>}</div>
   </div>
 </div>
+<div class="wrap"><div class="stats">
+  <div class="stat"><div class="num">24h</div><p data-t="st1">First logo ideas</p></div>
+  <div class="stat"><div class="num">3</div><p data-t="st2">Concepts to choose from</p></div>
+  <div class="stat"><div class="num">35+</div><p data-t="st3">Files in every logo pack</p></div>
+  <div class="stat"><div class="num">AR · EN</div><p data-t="st4">Designs in both languages</p></div>
+</div></div></section>
 
-<div class="ticker" aria-hidden="true"><div class="row" id="ticker"></div></div>
+<div class="tick" aria-hidden="true"><div class="row" id="ticker"></div></div>
 
-<!-- WORK -->
-<section id="work" aria-labelledby="work-h">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="work-h" data-t="work_h">Logos, brought to life.</h2>
-      <p data-t="work_p">Concept brands I designed and animated to show what's possible. Tap any of them to play the animation again.</p>
-    </div>
-    <div class="work">
-      <!-- novaline -->
-      <article class="piece a dots" data-anim="nova" tabindex="0" aria-label="novaline logo animation">
-        <div class="art">
-          <svg viewBox="0 0 520 200" width="100%" style="max-width:460px" aria-hidden="true">
-            <g transform="translate(10 10)">
-              <rect class="n-ring" x="10" y="10" width="160" height="160" rx="42" fill="none" stroke="#5B6CFF" stroke-width="9" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" stroke-linecap="round"/>
-              <ellipse class="n-orbit" cx="90" cy="90" rx="62" ry="36" transform="rotate(-25 90 90)" fill="none" stroke="#5B6CFF" stroke-opacity=".5" stroke-width="4" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
-              <circle class="n-planet" cx="90" cy="90" r="28" fill="#FF5A3C"/>
-              <circle class="n-m1" cx="140" cy="58" r="10" fill="#FFB23C"/>
-              <circle class="n-m2" cx="38" cy="118" r="6.5" fill="#1FC8A0"/>
-            </g>
-            <text class="n-word" x="212" y="118" fill="#F4F2EE" style="font:600 64px 'DM Sans',sans-serif">novaline</text>
-          </svg>
-        </div>
-        <div class="meta"><div><h3>novaline</h3><small data-t="w_nova">Tech startup, concept</small></div><button class="replay" type="button" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><span data-t="replay">Replay</span></button></div>
-      </article>
-      <!-- tidewell -->
-      <article class="piece b" data-anim="tide" tabindex="0" aria-label="Tidewell logo animation">
-        <div class="art">
-          <svg viewBox="0 0 200 250" width="70%" style="max-width:260px" aria-hidden="true">
-            <defs><clipPath id="tclip"><circle cx="100" cy="95" r="85"/></clipPath></defs>
-            <circle class="t-disc" cx="100" cy="95" r="85" fill="#F2E2C4"/>
-            <g clip-path="url(#tclip)">
-              <circle class="t-sun" cx="128" cy="62" r="20" fill="#F4963E"/>
-              <path class="t-w1" d="M-100 104 C-70 94,-40 114,-10 104 S50 94,80 104 S140 114,170 104 S230 94,300 104 V260 H-100Z" fill="#268C8C" stroke="#FAF6EE" stroke-width="3"/>
-              <path class="t-w2" d="M-100 128 C-70 118,-40 138,-10 128 S50 118,80 128 S140 138,170 128 S230 118,300 128 V260 H-100Z" fill="#1A6C74" stroke="#FAF6EE" stroke-width="3"/>
-              <path class="t-w3" d="M-100 152 C-70 142,-40 162,-10 152 S50 142,80 152 S140 162,170 152 S230 142,300 152 V260 H-100Z" fill="#0E4A54" stroke="#FAF6EE" stroke-width="3"/>
-            </g>
-            <text class="t-word" x="100" y="226" text-anchor="middle" fill="#142126" style="font:600 36px Georgia,'Times New Roman',serif">Tidewell</text>
-          </svg>
-        </div>
-        <div class="meta"><div><h3>Tidewell</h3><small data-t="w_tide">Seaside café, concept</small></div><button class="replay" type="button" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><span data-t="replay">Replay</span></button></div>
-      </article>
-      <!-- made by ilyas -->
-      <article class="piece c dots-l" data-anim="mbi" tabindex="0" aria-label="made by ilyas logo animation">
-        <div class="art">
-          <svg viewBox="0 0 200 200" width="48%" style="max-width:200px;overflow:visible" aria-hidden="true">
-            <rect class="m-tile" width="200" height="200" rx="44" fill="#16131F"/>
-            <circle class="m-d1" cx="40" cy="60" r="7" fill="#FF5A3C" opacity=".35"/>
-            <circle class="m-d2" cx="68" cy="60" r="11" fill="#FF5A3C" opacity=".6"/>
-            <circle class="m-d3" cx="104" cy="60" r="17" fill="#FF5A3C"/>
-            <rect class="m-stem" x="90" y="94" width="28" height="74" rx="14" fill="#F4F2EE"/>
-          </svg>
-        </div>
-        <div class="meta"><div><h3>made by ilyas</h3><small data-t="w_mbi">My own brand</small></div><button class="replay" type="button" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><span data-t="replay">Replay</span></button></div>
-      </article>
-      <!-- CTA tile -->
-      <article class="piece d" style="cursor:default">
-        <div>
-          <p class="big" data-t="w_cta_h">Your logo could be next.</p>
-          <p data-t="w_cta_p">Send your logo, or just your brand name and idea. I'll design or animate it for your website, app and social media.</p>
-        </div>
-        <div class="ctas"><a class="btn ink js-ig" href="#" data-t="dm_ig">Message on Instagram</a><a class="btn ink js-tt" href="#" data-t="dm_tt">Message on TikTok</a></div>
-      </article>
-    </div>
+<section id="services" class="dots-l"><div class="wrap">
+  <div class="head"><div class="eyebrow" data-t="sv_e">Services</div><h2 data-t="sv_h">What I can make for you.</h2><p class="lead" data-t="sv_p">Pick one, or combine them. Every project starts with a simple DM.</p></div>
+  <div class="svc">
+    <div class="card rv"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2381F" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="#C2381F"/></svg></div><h3 data-t="s1_h">Logo design</h3><p data-t="s1_p">3 concepts in 24 hours, then a full logo pack: SVG, PNG, PDF, icon and brand sheet.</p><div class="dm" data-t="s1_d">DM "LOGO"</div></div>
+    <div class="card rv"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2381F" stroke-width="2.2" stroke-linecap="round"><path d="M7 5l12 7-12 7z"/></svg></div><h3 data-t="s2_h">Logo animation</h3><p data-t="s2_p">Your logo, alive. For Reels, TikTok intros, websites and app splash screens.</p><div class="dm" data-t="s2_d">DM "MOTION"</div></div>
+    <div class="card rv"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2381F" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></div><h3 data-t="s3_h">Brand kit</h3><p data-t="s3_p">Post and story templates, highlight covers and a profile picture that all match.</p><div class="dm" data-t="s3_d">DM "KIT"</div></div>
+    <div class="card rv"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2381F" stroke-width="2.2" stroke-linecap="round"><path d="M6 3v18M6 3c3 0 3 5 0 5M14 3v6a3 3 0 006 0V3M17 9v12"/></svg></div><h3 data-t="s4_h">Menu design</h3><p data-t="s4_p">Printed menus, QR digital menus and daily-special stories for restaurants and cafés.</p><div class="dm" data-t="s4_d">DM "MENU"</div></div>
+    <div class="card rv"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2381F" stroke-width="2.2" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8l9 6 9-6"/></svg></div><h3 data-t="s5_h">Invitations</h3><p data-t="s5_p">Weddings, birthdays and openings, in print and ready to send on WhatsApp.</p><div class="dm" data-t="s5_d">DM "INVITE"</div></div>
+    <div class="card rv"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2381F" stroke-width="2.2" stroke-linecap="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div><h3 data-t="s6_h">UI & web</h3><p data-t="s6_p">Landing pages, app screens and websites, designed and built in React.</p><div class="dm" data-t="s6_d">DM "WEB"</div></div>
   </div>
-</section>
+</div></section>
 
-<!-- TOOLS -->
-<section id="tools" aria-labelledby="tools-h" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="tools-h" data-t="tools_h">Free tools and planners.</h2>
-      <p data-t="tools_p">Use them without an account. If they help you, share them with a friend.</p>
-    </div>
-
-    <div class="prod">
-      <div class="copy">
-        <span class="tagline"><i></i><span data-t="live">Live and free</span></span>
-        <h3>Logo Motion</h3>
-        <p data-t="lm_p">Upload your logo, choose how it moves, then copy the code or download a video. Everything runs in your browser.</p>
-        <ul class="feat">
-          <li><b>15</b><span data-t="lm_1">motion styles, from Pop and Rise to Orbit and Emerge</span></li>
-          <li><b>3</b><span data-t="lm_2">code exports: animated SVG, React and React Native</span></li>
-          <li><b>MP4</b><span data-t="lm_3">video for Reels and TikTok, in 9:16, 4:5 or square</span></li>
-        </ul>
-        <a class="btn ink" href="https://mohamad-ilyas.github.io/logo-motion/" data-t="lm_cta">Open Logo Motion</a>
-      </div>
-      <div class="vis">
-        <div class="window" aria-hidden="true">
-          <div class="tb"><i></i><i></i><i></i></div>
-          <div class="app">
-            <div class="pv"><svg id="mini" viewBox="0 0 200 200"><rect width="200" height="200" rx="44" fill="#16131F"/><circle class="d1" cx="40" cy="60" r="7" fill="#FF5A3C" opacity=".35"/><circle class="d2" cx="68" cy="60" r="11" fill="#FF5A3C" opacity=".6"/><circle class="d3" cx="104" cy="60" r="17" fill="#FF5A3C"/><rect class="stem" x="90" y="94" width="28" height="74" rx="14" fill="#F4F2EE"/></svg></div>
-            <div class="side"><span>Pop</span><span class="on">Rise</span><span>Orbit</span><span>Emerge</span><span>Draw</span><span>Spin</span><span>Float</span><span>Sway</span></div>
-            <div class="tl"><i></i><i></i><i></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod flip">
-      <div class="vis">
-        <div class="planner" aria-hidden="true">
-          <div class="sheet s1">
-            <h4>This week <span>هذا الأسبوع</span></h4>
-            <div class="days"><i>Sun</i><i class="on">Mon</i><i>Tue</i><i>Wed</i><i>Thu</i></div>
-            <div class="task done"><i></i><span>Math: chapter 3 review</span></div>
-            <div class="task done"><i></i><span>Biology flashcards</span></div>
-            <div class="task"><i></i><span>Physics practice exam</span></div>
-            <div class="task"><i></i><span>English essay draft</span></div>
-          </div>
-          <div class="sheet s2" dir="rtl">
-            <h4><span>التحضير للامتحان</span>Exam prep</h4>
-            <div class="days"><i>السبت</i><i class="on">الأحد</i><i>الاثنين</i><i>الثلاثاء</i><i>الأربعاء</i></div>
-            <div class="task done"><i></i><span>مراجعة الفصل الأول</span></div>
-            <div class="task"><i></i><span>حل امتحان تجريبي</span></div>
-            <div class="task"><i></i><span>تلخيص القوانين</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="copy">
-        <span class="tagline"><i></i><span data-t="free">Free download</span></span>
-        <h3 data-t="sp_h">Study Planner</h3>
-        <p data-t="sp_p">A 29-page linked PDF with 12 weekly spreads, task lists, exam prep pages and a habit tracker. Tap the tabs to jump between sections on your tablet, or print it.</p>
-        <div class="pdfs">
-          <a class="pdf" href="downloads/Study-Planner-English.pdf" download>
-            <span class="ic">PDF</span>
-            <span><strong data-t="pdf_en">English edition</strong><small data-t="pdf_meta">29 pages, undated</small></span>
-            <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg><span data-t="download">Download</span></span>
-          </a>
-          <a class="pdf" href="downloads/Study-Planner-Arabic.pdf" download>
-            <span class="ic">PDF</span>
-            <span><strong data-t="pdf_ar">Arabic edition</strong><small data-t="pdf_meta">29 pages, undated</small></span>
-            <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg><span data-t="download">Download</span></span>
-          </a>
-        </div>
-        <p class="note" data-t="sp_note">Works in GoodNotes, Notability and most PDF apps.</p>
-      </div>
-    </div>
+<section id="work" class="dark dots"><div class="wrap">
+  <div class="head"><div class="eyebrow" data-t="w_e">Selected work</div><h2 data-t="w_h">Brands I've shaped.</h2><p class="lead" data-t="w_p">A real client and concept brands, each with its own story and color.</p></div>
+  <div class="work">
+    <div class="tile rv"><div class="art" style="background:#F6F1EA"><div style="width:78%" role="img" aria-label="Chiizu photography logo"><svg class="chz" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" viewBox="-35.7 -35.7 611.5 373.7" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTphMzI0ODc4OC0wMzA5LTQ5OWUtYmM3My1iMGRkNWZjZjM1ODQAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaBVl+QjuZYDW5xp6lCrO1vEAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpjOTdmZGQwNC03MDI5LTQ5MTAtYWYwMi01NzA2ZDFiM2NjMjBscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoaFtcxXrKbpYIcN9lO7L7PAAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggUI4AkPU8Pn+7nWgHm2dchbj3IC2U7DwWbZL6ylvhFzakZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaCS4AOFPxFtSkrT5nbtaONEAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCAJC3e+9qS/1TUSJ0NpSPf1makY3RrF1zpD8e7bJuiXsmRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBisZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmEzMjQ4Nzg4LTAzMDktNDk5ZS1iYzczLWIwZGQ1ZmNmMzU4NC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjdjNGQ2M2NhLWFhM2QtNGNkYy1iMzRlLTIwYzY4ZjcwMDU4OXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBQjgCQ9Tw+f7udaAebZ1yFuPcgLZTsPBZtkvrKW+EXNqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggyb6E6sW7FA87IvaF6OTH64KVucpV53sQUAJTd5VYsf+iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggWyqquED9qqIYyH2/BlhPwTB06XpSr/obDdTCjXky55N0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQEOZ9LhW/oItBHIoS6cxL3OIck9b2gEWDg1YfPVDJWtJGYgchkVqWrBx5rjx0uQSIYgZsY4vROXUp0mp/dJp5kg=</c2pa:manifest></metadata><path d="M0 3L44 3A3 3 0 0 0 44 -3L0 -3A3 3 0 0 0 0 3ZM-3 0L-3 44A3 3 0 0 0 3 44L3 0A3 3 0 0 0 -3 0ZM540 -3L496 -3A3 3 0 0 0 496 3L540 3A3 3 0 0 0 540 -3ZM537 0L537 44A3 3 0 0 0 543 44L543 0A3 3 0 0 0 537 0ZM540 237L496 237A3 3 0 0 0 496 243L540 243A3 3 0 0 0 540 237ZM543 240L543 196A3 3 0 0 0 537 196L537 240A3 3 0 0 0 543 240ZM0 243L44 243A3 3 0 0 0 44 237L0 237A3 3 0 0 0 0 243ZM3 240L3 196A3 3 0 0 0 -3 196L-3 240A3 3 0 0 0 3 240Z" fill="#141414"/><path d="M496 34A10 10 0 1 1 516 34A10 10 0 1 1 496 34Z" fill="#F26B1D"/><path d="M122.2 174Q113.5 174 106.2 170.1Q98.9 166.1 94.5 158.7Q90.2 151.2 90.2 140.7Q90.2 133.7 92.7 127.3Q95.1 120.9 99.6 115.8Q104.1 110.8 110.3 107.8Q116.5 104.9 124.1 104.9Q131.7 104.9 137.1 107.2Q142.6 109.5 145.5 113.3Q148.4 117.1 148.4 121.5Q148.4 124.6 146.6 126.9Q144.8 129.3 141.4 129.3Q137.6 129.4 136.1 127Q134.5 124.6 134.5 122.6Q134.5 121.3 134.9 119.9Q135.3 118.4 136.3 117.2Q135.3 114.5 133 113.2Q130.7 111.9 128.2 111.5Q125.7 111.1 124.1 111.1Q116.1 111.2 110.7 117.9Q105.3 124.6 105.3 137.3Q105.3 145.3 107.8 151.6Q110.2 158 114.8 161.8Q119.4 165.6 126 165.7Q131.9 165.7 137.3 162.6Q142.8 159.6 146.1 154.9L150.3 158.6Q146.5 164.4 141.7 167.7Q136.8 171.1 131.8 172.6Q126.8 174 122.2 174Z M200.1 166.5Q204 166.5 205.6 164.7Q207.2 162.9 207.5 159.6Q207.8 156.4 207.8 152.1L207.8 133.8Q207.7 123.5 204.5 118.5Q201.3 113.4 194.4 113.4Q190.1 113.5 186 115.5Q181.8 117.4 179.2 120.4V155.8Q179.2 158.1 179.1 160.6Q178.9 163 178.6 165.5Q180.7 165.3 182.9 165.3Q185 165.2 186.9 165.1V172H157.8V166.5Q161.7 166.5 163.3 164.7Q164.9 162.9 165.2 159.6Q165.6 156.4 165.6 152.1V93.3Q165.6 91.1 165.7 88.9Q165.8 86.6 166 83.9Q163.8 84 161.3 84.1Q158.9 84.2 156.8 84.4V77.4Q162.7 77.4 166.2 76.9Q169.7 76.3 171.5 75.5Q173.4 74.7 174.3 73.8H179.2V113Q182 110.7 185.5 108.9Q189 107.1 192.7 106Q196.4 104.9 199.7 104.9Q211.3 104.9 216.3 111.9Q221.3 118.9 221.4 133.9L221.4 155.8Q221.4 158.1 221.4 160.6Q221.3 163 220.9 165.5Q223 165.3 225.2 165.3Q227.3 165.2 229.2 165.1V172H200.1Z M238.2 166.5Q242.1 166.5 243.6 164.7Q245.2 162.9 245.5 159.6Q245.8 156.4 245.8 152.1V125.1Q245.8 123 246 120.7Q246.1 118.4 246.4 115.7Q244.1 115.9 241.7 116Q239.2 116.1 237.2 116.2V109.3Q243 109.3 246.4 108.7Q249.9 108.2 251.8 107.3Q253.7 106.5 254.6 105.7H259.4V155.8Q259.4 158.1 259.4 160.6Q259.3 163 258.9 165.5Q261 165.3 263.2 165.3Q265.4 165.2 267.2 165.1V172H238.2ZM251.9 93.6Q248.6 93.6 246.3 91.1Q243.9 88.6 243.9 85Q243.9 81.3 246.4 78.8Q248.8 76.2 251.9 76.2Q255.3 76.2 257.6 78.8Q259.9 81.3 259.9 85Q259.9 88.6 257.6 91.1Q255.3 93.6 251.9 93.6Z M276.6 166.5Q280.5 166.5 282.1 164.7Q283.7 162.9 284 159.6Q284.3 156.4 284.3 152.1V125.1Q284.3 123 284.4 120.7Q284.6 118.4 284.8 115.7Q282.6 115.9 280.1 116Q277.7 116.1 275.6 116.2V109.3Q281.5 109.3 284.9 108.7Q288.4 108.2 290.3 107.3Q292.2 106.5 293.1 105.7H297.9V155.8Q297.9 158.1 297.8 160.6Q297.7 163 297.4 165.5Q299.5 165.3 301.7 165.3Q303.9 165.2 305.7 165.1V172H276.6ZM290.4 93.6Q287.1 93.6 284.7 91.1Q282.4 88.6 282.4 85Q282.4 81.3 284.8 78.8Q287.3 76.2 290.4 76.2Q293.8 76.2 296.1 78.8Q298.4 81.3 298.4 85Q298.4 88.6 296.1 91.1Q293.8 93.6 290.4 93.6Z M314.5 172V165.3L348.7 121Q350.8 118.3 352.8 115.9Q354.8 113.5 355.8 112.8L333.7 113.1Q329.5 113.1 327.1 115.6Q324.7 118 323.5 122Q322.3 125.9 321.6 130.8H316.2L317.9 107H369.4V112.5L335.3 157.7Q333.5 159.9 332.1 161.6Q330.6 163.3 328.3 165.2L351.2 165.7Q356.2 165.7 359.1 163.3Q362 160.9 363.4 156.8Q364.9 152.7 365.7 147.7H370.9L369.2 172Z M408.9 174Q401.7 174 396.9 171.3Q392.2 168.6 389.9 162.3Q387.5 156 387.5 145.6V125.1Q387.5 123 387.6 120.6Q387.7 118.2 388 115.7Q385.8 115.9 383.4 115.9Q380.9 116 379 116.1V109.3H382.1Q388.5 109.3 391.8 108.1Q395 107 396.4 105.7H401.3V145.3Q401.3 155.6 404.2 160.7Q407 165.7 413.8 165.6Q418.2 165.5 422.3 163Q426.4 160.4 429 156.9V126.1Q429 123.2 429.1 120.7Q429.3 118.2 429.6 115.7Q427.4 115.9 424.9 115.9Q422.4 116 420.3 116.1V109.3H424.1Q429.8 109.3 433.1 108.1Q436.3 106.9 437.7 105.7H442.6L442.5 153.5Q442.5 155.5 442.4 159.1Q442.3 162.8 442 165.5Q444.3 165.3 446.7 165.2Q449.1 165.1 451.1 165V172H430.4Q430.1 169.9 429.9 168Q429.7 166.2 429.6 164.5Q425.5 168.3 420.2 171.2Q414.8 174 408.9 174Z" fill="#141414"/><path d="M95.3 299.3H92.8V305H90.5V291.1H95.3Q96.9 291.1 98 291.6Q99.1 292.2 99.7 293.1Q100.2 294 100.2 295.2Q100.2 296.3 99.7 297.2Q99.2 298.1 98.1 298.7Q97 299.3 95.3 299.3ZM97.9 295.2Q97.9 292.9 95.3 292.9H92.8V297.5H95.3Q96.6 297.5 97.2 296.9Q97.9 296.3 97.9 295.2Z M110.6 298Q110.6 295.9 111.6 294.3Q112.5 292.7 114.2 291.8Q115.8 290.9 117.7 290.9Q119.7 290.9 121.3 291.8Q123 292.7 123.9 294.3Q124.8 295.9 124.8 298Q124.8 300 123.9 301.6Q123 303.3 121.3 304.2Q119.7 305.1 117.7 305.1Q115.8 305.1 114.2 304.2Q112.5 303.3 111.6 301.6Q110.6 300 110.6 298ZM122.5 298Q122.5 296.4 121.9 295.3Q121.3 294.1 120.2 293.5Q119.1 292.9 117.7 292.9Q116.4 292.9 115.3 293.5Q114.2 294.1 113.6 295.3Q113 296.4 113 298Q113 299.5 113.6 300.7Q114.2 301.9 115.3 302.5Q116.4 303.1 117.7 303.1Q119.1 303.1 120.2 302.5Q121.3 301.9 121.9 300.7Q122.5 299.5 122.5 298Z M143.3 305 140.1 299.4H138.4V305H136.1V291.1H140.9Q142.5 291.1 143.6 291.6Q144.7 292.2 145.3 293.1Q145.8 294.1 145.8 295.2Q145.8 296.6 145 297.7Q144.2 298.8 142.6 299.2L146 305ZM138.4 297.6H140.9Q142.2 297.6 142.8 296.9Q143.5 296.3 143.5 295.2Q143.5 294.1 142.8 293.5Q142.2 292.9 140.9 292.9H138.4Z M166.7 291.1V292.9H163V305H160.7V292.9H157V291.1Z M185.2 305 182 299.4H180.3V305H178V291.1H182.8Q184.4 291.1 185.5 291.6Q186.6 292.2 187.2 293.1Q187.7 294.1 187.7 295.2Q187.7 296.6 186.9 297.7Q186.1 298.8 184.5 299.2L187.9 305ZM180.3 297.6H182.8Q184.1 297.6 184.7 296.9Q185.4 296.3 185.4 295.2Q185.4 294.1 184.7 293.5Q184.1 292.9 182.8 292.9H180.3Z M208 302.1H202.2L201.2 305H198.8L203.8 291H206.4L211.4 305H209ZM207.4 300.3 205.1 293.8 202.8 300.3Z M224.9 291.1V305H222.6V291.1Z M245.8 291.1V292.9H242.1V305H239.9V292.9H236.1V291.1Z M256.8 301.1H259.2Q259.3 302 260 302.6Q260.6 303.2 261.7 303.2Q262.9 303.2 263.6 302.6Q264.2 302 264.2 301.1Q264.2 300.4 263.8 300Q263.4 299.6 262.8 299.3Q262.2 299.1 261.1 298.8Q259.7 298.4 258.9 298.1Q258 297.7 257.4 296.9Q256.8 296.1 256.8 294.8Q256.8 293.6 257.4 292.7Q258 291.8 259.1 291.4Q260.2 290.9 261.6 290.9Q263.6 290.9 264.9 291.9Q266.2 292.9 266.4 294.7H263.8Q263.8 293.9 263.1 293.4Q262.5 292.8 261.4 292.8Q260.4 292.8 259.8 293.3Q259.2 293.8 259.2 294.8Q259.2 295.4 259.6 295.8Q259.9 296.2 260.5 296.5Q261.1 296.7 262.2 297Q263.6 297.4 264.4 297.7Q265.3 298.1 265.9 298.9Q266.5 299.7 266.5 301Q266.5 302.1 266 303Q265.4 304 264.3 304.5Q263.2 305.1 261.7 305.1Q260.3 305.1 259.2 304.6Q258.1 304.1 257.4 303.2Q256.8 302.3 256.8 301.1Z  M303.2 305 301.4 303.2Q300.4 304.2 299.3 304.7Q298.1 305.2 296.6 305.2Q295.1 305.2 294 304.7Q292.9 304.2 292.2 303.2Q291.6 302.2 291.6 301Q291.6 299.5 292.4 298.4Q293.3 297.3 294.9 296.6Q294.3 295.9 294.1 295.3Q293.8 294.7 293.8 293.9Q293.8 293 294.3 292.3Q294.8 291.6 295.6 291.2Q296.5 290.7 297.7 290.7Q298.9 290.7 299.7 291.2Q300.5 291.6 300.9 292.4Q301.3 293.2 301.3 294.2H299Q299 293.4 298.6 293Q298.2 292.6 297.6 292.6Q296.9 292.6 296.5 293Q296.1 293.4 296.1 293.9Q296.1 294.5 296.4 295Q296.7 295.5 297.5 296.4L301.2 300L302.6 297.7H305.1L303.3 300.8L302.8 301.6L306.1 305ZM299.9 301.7 296.3 298Q293.9 299 293.9 300.9Q293.9 301.9 294.7 302.6Q295.4 303.3 296.6 303.3Q298.5 303.3 299.9 301.7Z  M342.3 305H340L333.1 294.6V305H330.8V291H333.1L340 301.4V291H342.3Z M362.6 302.1H356.8L355.8 305H353.4L358.4 291H361.1L366 305H363.6ZM362 300.3 359.7 293.8 357.5 300.3Z M386.2 291.1V292.9H382.5V305H380.2V292.9H376.5V291.1Z M399.7 291.1V299.9Q399.7 301.5 400.6 302.3Q401.4 303.1 402.9 303.1Q404.4 303.1 405.2 302.3Q406 301.5 406 299.9V291.1H408.3V299.9Q408.3 301.6 407.6 302.8Q406.8 303.9 405.6 304.5Q404.4 305.1 402.9 305.1Q401.4 305.1 400.1 304.5Q398.9 303.9 398.2 302.8Q397.5 301.6 397.5 299.9V291.1Z M427.5 305 424.3 299.4H422.6V305H420.3V291.1H425.1Q426.7 291.1 427.8 291.6Q428.9 292.2 429.5 293.1Q430 294.1 430 295.2Q430 296.6 429.2 297.7Q428.4 298.8 426.8 299.2L430.2 305ZM422.6 297.6H425.1Q426.4 297.6 427 296.9Q427.7 296.3 427.7 295.2Q427.7 294.1 427 293.5Q426.4 292.9 425.1 292.9H422.6Z M444.2 292.9V297H449V298.8H444.2V303.1H449.6V305H441.9V291H449.6V292.9Z" fill="#8C857C"/></svg></div></div><div class="meta"><h3>Chiizu<span class="badge" data-t="client">Client</span></h3><span class="k" data-t="k1">Photography</span></div></div>
+    <div class="tile rv"><div class="art" style="background:#E8C4B8"><svg viewBox="0 0 260 120" width="86%"><path d="M50 18 C66 38 72 50 72 60 A22 22 0 0 1 28 60 C28 50 34 38 50 18Z" fill="#7C9A82"/><path d="M50 42 C50 56 46 64 40 68" stroke="#F5F1EA" stroke-width="4" fill="none" stroke-linecap="round"/><text x="88" y="66" font-family="Lora,serif" font-size="30" font-style="italic" fill="#23392B">lumi skin</text></svg></div><div class="meta"><h3>Lumi Skin</h3><span class="k" data-t="k2">Skincare · brand kit</span></div></div>
+    <div class="tile rv"><div class="art" style="background:#5B6B3A"><svg viewBox="0 0 290 120" width="92%"><path d="M30 92 C46 76 58 58 76 36" stroke="#E9DCC4" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse cx="44" cy="74" rx="11" ry="5" fill="#E9DCC4" transform="rotate(-70 44 74)"/><ellipse cx="56" cy="80" rx="11" ry="5" fill="#E9DCC4" transform="rotate(20 56 80)"/><ellipse cx="60" cy="54" rx="11" ry="5" fill="#E9DCC4" transform="rotate(-70 60 54)"/><circle cx="76" cy="44" r="6" fill="#B5653A"/><text x="96" y="70" font-family="Lora,serif" font-size="26" font-style="italic" fill="#F7F1E6">Olive &amp; Thyme</text></svg></div><div class="meta"><h3>Olive &amp; Thyme</h3><span class="k" data-t="k3">Restaurant · menu</span></div></div>
+    <div class="tile rv"><div class="art" style="background:#F4EBDD"><svg viewBox="0 0 260 120" width="86%"><path d="M50 60 L65.3 33.5 A30.6 30.6 0 1 0 76.5 44.7Z" fill="#C7372A"/><path d="M54 56 L80.5 40.7 A30.6 30.6 0 0 0 69.3 29.5Z" fill="#C7372A"/><circle cx="40" cy="52" r="3.5" fill="#F4EBDD"/><circle cx="55" cy="72" r="3.5" fill="#F4EBDD"/><circle cx="38" cy="70" r="3.5" fill="#F4EBDD"/><text x="96" y="70" font-family="Lora,serif" font-weight="500" font-size="30" letter-spacing="3" fill="#1B1B1B">TONY'S</text></svg></div><div class="meta"><h3>Tony's</h3><span class="k" data-t="k4">Pizzeria · rebrand</span></div></div>
+    <div class="tile rv"><div class="art" style="background:#F3EADF"><svg viewBox="0 0 270 120" width="88%"><g transform="translate(14 22) scale(.6)"><path d="M-12 -20 q-6 -8 0 -16 M2 -20 q-6 -8 0 -16 M16 -20 q-6 -8 0 -16" transform="translate(60 40)" fill="none" stroke="#2B1D17" stroke-width="5" stroke-linecap="round"/><rect x="24" y="36" width="70" height="58" rx="15" fill="#C8553D"/><path d="M94 50 a14 14 0 0 1 0 28" fill="none" stroke="#C8553D" stroke-width="8"/></g><text x="86" y="72" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="32" letter-spacing="-1" fill="#2B1D17">brewhaus</text></svg></div><div class="meta"><h3>Brewhaus</h3><span class="k" data-t="k5">Coffee · logo animation</span></div></div>
+    <div class="tile rv"><div class="art" style="background:#F4F2EE"><svg viewBox="0 0 240 120" width="80%"><rect x="20" y="25" width="70" height="70" rx="18" fill="#1A7F74"/><path d="M55 35 A25 25 0 0 1 80 60 H55Z" fill="#F4F2EE"/><circle cx="42" cy="74" r="7" fill="#FF5A3C"/><text x="104" y="78" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="48" letter-spacing="-2" fill="#16131F">kivo</text></svg></div><div class="meta"><h3>Kivo</h3><span class="k" data-t="k6">Tech · identity</span></div></div>
   </div>
-</section>
+</div></section>
 
-<!-- SERVICE -->
-<section class="service dots" id="service" aria-labelledby="svc-h">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="svc-h" data-t="svc_h">How a logo project works.</h2>
-      <p data-t="svc_p">Whether you need a new logo or want your current one animated, it takes three steps.</p>
-    </div>
+<section class="dots-l" style="padding-top:90px;padding-bottom:40px"><div class="wrap">
+  <div class="eyebrow" data-t="q_e">Client review</div>
+  <div class="quote rv"><div id="chz2" style="width:170px;background:#F6F1EA;border-radius:24px;padding:16px" aria-hidden="true"></div>
+    <div><div class="stars">★★★★★</div><blockquote data-t="q_t">“I really like the logo! It’s simple, clean, and looks really good. You captured the idea perfectly without making it look too complicated. I also appreciate how quickly you made it.”</blockquote><cite data-t="q_c">Chiizu · portrait &amp; nature photography</cite></div>
+  </div>
+</div></section>
+
+<section id="process" class="dots-l" style="padding-top:70px"><div class="wrap">
+  <div class="dark dots" style="border-radius:40px;padding:56px 40px">
+    <div class="head"><div class="eyebrow" data-t="p_e">How it works</div><h2 data-t="p_h">From a DM to your files.</h2></div>
     <div class="steps">
-      <div class="step"><b>1</b><h3 data-t="s1_h">Send a message</h3><p data-t="s1_p">Share your logo file, or your brand name and the feeling you want.</p></div>
-      <div class="step"><b>2</b><h3 data-t="s2_h">Choose the motion</h3><p data-t="s2_p">I send you a few animation ideas. You pick one and we refine it together.</p></div>
-      <div class="step"><b>3</b><h3 data-t="s3_h">Get your files</h3><p data-t="s3_p">Video for Reels and TikTok, plus code for your website or app.</p></div>
+      <div class="step rv"><div class="n">01</div><h3 data-t="p1_h">Send a message</h3><p data-t="p1_p">Your brand name, what you do and the vibe you like. One line is enough.</p></div>
+      <div class="step rv"><div class="n">02</div><h3 data-t="p2_h">Pick an idea</h3><p data-t="p2_p">I send 3 concepts within 24 hours. You choose one, and we refine it together.</p></div>
+      <div class="step rv"><div class="n">03</div><h3 data-t="p3_h">Get everything</h3><p data-t="p3_p">A ready pack: every format, light and dark versions, profile pictures and a brand sheet.</p></div>
     </div>
-    <div class="svc-cta"><a class="btn coral js-ig" href="#" data-t="dm_ig">Message on Instagram</a><a class="btn line js-tt" href="#" data-t="dm_tt">Message on TikTok</a></div>
   </div>
-</section>
+</div></section>
 
-<!-- ROADMAP -->
-<section id="next" aria-labelledby="next-h">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="next-h" data-t="next_h">Coming next.</h2>
-      <p data-t="next_p">What I'm building after the study planner. Items marked Next are already in progress, and you can vote to move any of them up.</p>
-    </div>
-    <div class="road" id="road"></div>
+<section id="tips" class="dots-l" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div class="eyebrow" data-t="t_e">Free tips</div><h2 data-t="t_h">Designer words → developer code.</h2><p class="lead" data-t="t_p">My most-watched series on TikTok. A taste:</p></div>
+  <div class="tips">
+    <div class="tip rv"><div class="say" data-t="t1">“Make it pop”</div><pre>font-weight: 700;
+border-radius: 14px;
+box-shadow: 0 10px 26px
+  rgba(255,90,60,.45);</pre></div>
+    <div class="tip rv"><div class="say" data-t="t2">“Give it breathing room”</div><pre>padding: 24px;
+gap: 16px;
+/* 8 · 16 · 24 · 32 */</pre></div>
+    <div class="tip rv"><div class="say" data-t="t3">“Make it readable”</div><pre>font-size: 16px;
+line-height: 1.6;
+max-width: 65ch;</pre></div>
   </div>
-</section>
+  <div class="cta"><a class="btn btn-k js-tt" href="#" data-t="t_c">More tips on TikTok →</a></div>
+</div></section>
 
-<!-- FOLLOW -->
-<div class="follow">
-  <div class="wrap">
-    <div class="fbox dots-l">
-      <div>
-        <h2 data-t="f_h">Follow along.</h2>
-        <p data-t="f_p">New animations, free planners and behind-the-scenes builds, every week. Vote on what I make next.</p>
-      </div>
-      <div class="socials">
-        <a class="soc js-ig" href="#">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
-          <span><strong>Instagram</strong><small class="js-ig-h">@madebyilyas25</small></span>
-          <svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-        </a>
-        <a class="soc js-tt" href="#">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.1 1.8 3.6 4 3.8v3.3c-1.5 0-2.9-.4-4-1.1v6.2A5.8 5.8 0 1 1 10.8 9.4v3.4a2.5 2.5 0 1 0 2.4 2.5V3h3.4z"/></svg></span>
-          <span><strong>TikTok</strong><small class="js-tt-h">@madebyilyas25</small></span>
-          <svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-        </a>
-        <a class="soc" href="https://github.com/mohamad-ilyas">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></span>
-          <span><strong>GitHub</strong><small>mohamad-ilyas</small></span>
-          <svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-        </a>
-      </div>
-    </div>
+<section id="tools" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div class="eyebrow" data-t="f_e">Free tools</div><h2 data-t="f_h">Made by me, free for you.</h2></div>
+  <div class="tools">
+    <div class="tool dark dots rv"><div class="eyebrow">Logo Motion</div><h3 data-t="lm_h">Animate your logo in seconds.</h3><p style="color:var(--mute-d)" data-t="lm_p">Upload your SVG, pick a style, export. Free, no sign-up, runs in your browser.</p><div class="links"><a class="btn btn-c" href="https://mohamad-ilyas.github.io/logo-motion/" target="_blank" rel="noopener" data-t="lm_c">Open Logo Motion →</a></div></div>
+    <div class="tool rv" style="background:#fff"><div class="eyebrow" data-t="sp_e">Study Planner</div><h3 data-t="sp_h">Plan your semester.</h3><p style="color:var(--muted)" data-t="sp_p">12 weekly spreads, exam tracker and goal pages. Printable, in Arabic and English.</p><div class="links"><a class="btn btn-k" href="downloads/Study-Planner-English.pdf" download>English PDF</a><a class="btn btn-k" href="downloads/Study-Planner-Arabic.pdf" download>عربي PDF</a></div></div>
   </div>
-</div>
+</div></section>
+
+<section id="contact" class="dark dots contact"><div class="wrap">
+  <div class="eyebrow" data-t="c_e">Let's work together</div>
+  <h2 data-t="c_h">Got an idea? Let's make it real.</h2>
+  <p class="lead" style="margin-inline:auto" data-t="c_p">Send "LOGO", "KIT", "MENU", "INVITE" or "WEB", and I'll reply with ideas.</p>
+  <div class="cta"><a class="btn btn-c js-dm" href="#" data-t="c_c">Message me on Instagram →</a></div>
+  <div class="soc">
+    <a class="js-ig" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="js-ig-h"></span></a>
+    <a class="js-tt" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.4 2.2 1.8 3.6 4 3.9v3.2c-1.5 0-2.9-.4-4-1.2v6.3a5.7 5.7 0 11-5.7-5.7c.3 0 .6 0 .9.1v3.3a2.5 2.5 0 102 2.4V3h2.8z"/></svg><span class="js-tt-h"></span></a>
+    <a href="https://github.com/mohamad-ilyas" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 015 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg>GitHub</a>
+  </div>
+</div></section>
 </main>
-
-<footer>
-  <div class="wrap foot">
-    <a class="brand" href="#top"><span>made by <b>ilyas</b></span></a>
-    <nav aria-label="Footer">
-      <a href="#work" data-t="nav_work">Work</a>
-      <a href="https://mohamad-ilyas.github.io/logo-motion/">Logo Motion</a>
-      <a href="#tools" data-t="nav_planners">Free planners</a>
-      <a class="js-ig" href="#">Instagram</a>
-      <a class="js-tt" href="#">TikTok</a>
-    </nav>
-    <small data-t="foot">Logo design and animation, free tools and planners. Made in Arabic and English.</small>
-  </div>
-</footer>
+<footer class="dark"><div class="wrap"><span>© <span id="yr"></span> made by ilyas</span><span data-t="ft">Designed and coded by Ilyas 🧡</span></div></footer>
 
 <script>
-(function(){
-/* ======== Edit your links here ======== */
-const SOCIAL={
-  instagram:'madebyilyas25',
-  tiktok:'madebyilyas25'
-};
-/* ===================================== */
+const SOCIAL={instagram:'madebyilyas25',tiktok:'madebyilyas25'};
 document.querySelectorAll('.js-ig').forEach(a=>{a.href='https://www.instagram.com/'+SOCIAL.instagram+'/';a.target='_blank';a.rel='noopener'});
+document.querySelectorAll('.js-dm').forEach(a=>{a.href='https://ig.me/m/'+SOCIAL.instagram;a.target='_blank';a.rel='noopener'});
 document.querySelectorAll('.js-tt').forEach(a=>{a.href='https://www.tiktok.com/@'+SOCIAL.tiktok;a.target='_blank';a.rel='noopener'});
-document.querySelectorAll('.js-ig-h').forEach(e=>e.textContent='@'+SOCIAL.instagram);
-document.querySelectorAll('.js-tt-h').forEach(e=>e.textContent='@'+SOCIAL.tiktok);
-
-const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const EASE={out:'cubic-bezier(.16,1,.3,1)',over:'cubic-bezier(.34,1.56,.64,1)',io:'cubic-bezier(.65,0,.35,1)'};
-function prep(el,origin){el.style.transformBox='fill-box';el.style.transformOrigin=origin||'center'}
-function A(el,frames,opts){return el.animate(frames,Object.assign({fill:'both',easing:EASE.out},opts))}
-function cancel(svg){svg.getAnimations({subtree:true}).forEach(a=>a.cancel())}
-
-/* ---------- hero: your logo in 6 styles ---------- */
-const H=document.getElementById('hero-logo');
-const P={tile:H.querySelector('.tile'),line:H.querySelector('.outline'),d:[...H.querySelectorAll('.d1,.d2,.d3')],stem:H.querySelector('.stem')};
-const STYLES={
-  pop(){prep(P.tile);A(P.tile,[{transform:'scale(0)'},{transform:'scale(1.08)',offset:.6},{transform:'scale(1)'}],{duration:700});
-    P.d.forEach((d,i)=>{prep(d);A(d,[{transform:'scale(0)'},{transform:'scale(1.3)',offset:.6},{transform:'scale(1)'}],{duration:500,delay:450+i*110})});
-    prep(P.stem,'bottom');A(P.stem,[{transform:'scaleY(0)'},{transform:'scaleY(1)'}],{duration:600,delay:380,easing:EASE.over})},
-  rise(){[P.tile,P.stem,...P.d].forEach((e,i)=>{prep(e);A(e,[{opacity:0,transform:'translateY(60px)'},{opacity:1,transform:'none'}],{duration:800,delay:i*120})})},
-  orbit(){prep(P.tile);A(P.tile,[{opacity:0},{opacity:1}],{duration:400});prep(P.stem,'bottom');A(P.stem,[{transform:'scaleY(0)'},{transform:'none'}],{duration:600,delay:200,easing:EASE.over});
-    P.d.forEach((d,i)=>{d.style.transformBox='fill-box';d.style.transformOrigin='50% 420%';A(d,[{opacity:0,transform:'rotate(-150deg)'},{opacity:1,offset:.3},{opacity:1,transform:'none'}],{duration:1000,delay:350+i*140})})},
-  draw(){A(P.tile,[{opacity:0},{opacity:0,offset:.55},{opacity:1}],{duration:1400});
-    A(P.line,[{strokeDashoffset:1,opacity:1},{strokeDashoffset:0,opacity:1,offset:.7},{strokeDashoffset:0,opacity:0}],{duration:1500,easing:EASE.io});
-    P.d.forEach((d,i)=>{prep(d);A(d,[{transform:'scale(0)'},{transform:'scale(1)'}],{duration:450,delay:1000+i*100,easing:EASE.over})});
-    prep(P.stem,'bottom');A(P.stem,[{transform:'scaleY(0)'},{transform:'none'}],{duration:500,delay:900,easing:EASE.over})},
-  emerge(){prep(P.tile);A(P.tile,[{transform:'scale(.85)',opacity:0},{transform:'none',opacity:1}],{duration:600});
-    [P.stem,...P.d].forEach((e,i)=>{prep(e);A(e,[{transform:'translateY(100%)',clipPath:'inset(0 0 100% 0)'},{transform:'none',clipPath:'inset(0 0 0 0)'}],{duration:800,delay:300+i*110})})},
-  spin(){const g=[P.tile,P.stem,...P.d];prep(H,'center');H.style.transformOrigin='50% 50%';
-    A(H,[{transform:'rotate(-200deg) scale(.2)',opacity:0},{opacity:1,offset:.4},{transform:'none',opacity:1}],{duration:1100,easing:EASE.over})}
-};
-const ORDER=['pop','orbit','draw','rise','emerge','spin'];
-const NAMES={en:{pop:'Pop',orbit:'Orbit in',draw:'Draw',rise:'Rise',emerge:'Emerge',spin:'Spin in'},ar:{pop:'ظهور',orbit:'مدار',draw:'رسم',rise:'ارتفاع',emerge:'شروق',spin:'دوران'}};
-const chips=document.getElementById('chips'),prog=document.getElementById('prog'),nameEl=document.getElementById('styleName');
-let cur=0,timer=null,auto=!REDUCED,lang='en';
-ORDER.forEach((k,i)=>{const b=document.createElement('button');b.className='chip';b.type='button';b.dataset.k=k;b.addEventListener('click',()=>{auto=false;play(i)});chips.appendChild(b)});
-function labelChips(){[...chips.children].forEach(b=>b.textContent=NAMES[lang][b.dataset.k]);nameEl.textContent=NAMES[lang][ORDER[cur]]}
-function play(i){
-  cur=i;cancel(H);H.getAnimations().forEach(a=>a.cancel());
-  [...chips.children].forEach((b,j)=>b.setAttribute('aria-pressed',j===i));
-  nameEl.textContent=NAMES[lang][ORDER[i]];
-  if(!REDUCED)STYLES[ORDER[i]]();
-  clearTimeout(timer);prog.getAnimations().forEach(a=>a.cancel());
-  if(auto){prog.animate([{width:'0%'},{width:'100%'}],{duration:3400,easing:'linear',fill:'forwards'});timer=setTimeout(()=>play((i+1)%ORDER.length),3400)}
-  else prog.style.width='0%';
-}
-
-/* ---------- mini app window ---------- */
-const mini=document.getElementById('mini');
-function miniLoop(){if(REDUCED)return;cancel(mini);[mini.querySelector('.stem'),...mini.querySelectorAll('.d1,.d2,.d3')].forEach((e,i)=>{prep(e);A(e,[{opacity:0,transform:'translateY(50px)'},{opacity:1,transform:'none'}],{duration:700,delay:i*120})})}
-setInterval(()=>{if(document.visibilityState==='visible')miniLoop()},3200);
-
-/* ---------- portfolio pieces ---------- */
-const PIECES={
-  nova(s){const q=c=>s.querySelector(c);
-    A(q('.n-ring'),[{strokeDashoffset:1},{strokeDashoffset:0}],{duration:1000,easing:EASE.io});
-    A(q('.n-orbit'),[{strokeDashoffset:1},{strokeDashoffset:0}],{duration:1100,delay:350,easing:EASE.io});
-    const p=q('.n-planet');prep(p);A(p,[{transform:'scale(0)'},{transform:'scale(1.15)',offset:.6},{transform:'none'}],{duration:700,delay:550});
-    [q('.n-m1'),q('.n-m2')].forEach((m,i)=>{m.style.transformBox='view-box';m.style.transformOrigin='100px 100px';A(m,[{opacity:0,transform:'rotate(-140deg)'},{opacity:1,offset:.3},{opacity:1,transform:'none'}],{duration:900,delay:1000+i*150})});
-    A(q('.n-word'),[{opacity:0,transform:'translateY(24px)'},{opacity:1,transform:'none'}],{duration:700,delay:1500})},
-  tide(s){const q=c=>s.querySelector(c);
-    const d=q('.t-disc');prep(d);A(d,[{transform:'scale(0)'},{transform:'scale(1.05)',offset:.7},{transform:'none'}],{duration:700,easing:EASE.out});
-    A(q('.t-sun'),[{transform:'translateY(110px)'},{transform:'none'}],{duration:1100,delay:350,easing:EASE.out});
-    ['.t-w1','.t-w2','.t-w3'].forEach((c,i)=>A(q(c),[{transform:'translateX(-220px)'},{transform:'none'}],{duration:1000,delay:800+i*180}));
-    ['.t-w1','.t-w2','.t-w3'].forEach((c,i)=>A(q(c),[{transform:'translateX(0)'},{transform:'translateX(-40px)'}],{duration:3000,delay:2400+i*200,iterations:Infinity,direction:'alternate',easing:'ease-in-out',fill:'none',composite:'add'}));
-    A(q('.t-word'),[{opacity:0,letterSpacing:'10px'},{opacity:1,letterSpacing:'0px'}],{duration:900,delay:1500})},
-  mbi(s){const q=c=>s.querySelector(c);
-    const t=q('.m-tile');prep(t);A(t,[{transform:'rotate(-90deg) scale(0)'},{transform:'none'}],{duration:800,easing:EASE.over});
-    const st=q('.m-stem');prep(st,'bottom');A(st,[{transform:'scaleY(0)'},{transform:'none'}],{duration:600,delay:450,easing:EASE.over});
-    ['.m-d1','.m-d2','.m-d3'].forEach((c,i)=>{const e=q(c);prep(e);A(e,[{transform:'translateX(-120px) scale(0)'},{transform:'none'}],{duration:650,delay:750+i*120,easing:EASE.over})})}
-};
-const pieces=[...document.querySelectorAll('[data-anim]')];
-function playPiece(el){if(REDUCED)return;const s=el.querySelector('svg');cancel(s);PIECES[el.dataset.anim](s)}
-pieces.forEach(el=>{
-  el.addEventListener('click',()=>playPiece(el));
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();playPiece(el)}});
-});
-if('IntersectionObserver' in window&&!REDUCED){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){playPiece(e.target);io.unobserve(e.target)}}),{threshold:.45});
-  pieces.forEach(p=>io.observe(p));
-}
-
-/* ---------- ticker ---------- */
-const TICK={en:['Logo design','Logo animation','Reels and TikTok videos','Free study planners','Arabic and English','Logo Motion tool'],
-            ar:['تصميم شعارات','تحريك الشعارات','فيديوهات ريلز وتيك توك','مخططات دراسة مجانية','بالعربي والإنجليزي','أداة Logo Motion']};
-function renderTicker(){const r=document.getElementById('ticker');r.innerHTML='';const list=TICK[lang].concat(TICK[lang]).concat(TICK[lang]).concat(TICK[lang]);list.forEach(t=>{const s=document.createElement('span');s.textContent=t;r.appendChild(s)})}
-
-/* ---------- roadmap ---------- */
-const ROAD=[
- {en:'Planners',ar:'مخططات',n:{en:'For school and daily life',ar:'للدراسة والحياة اليومية'},items:[['Habit tracker','متتبع العادات','next'],['Budget planner','مخطط الميزانية','next'],['Daily planner','المخطط اليومي','later'],['Goals planner','مخطط الأهداف','later'],['Meal planner','مخطط الوجبات','later'],['Travel planner','مخطط السفر','later']]},
- {en:'Templates',ar:'قوالب',n:{en:'Ready to edit and use',ar:'جاهزة للتعديل والاستخدام'},items:[['CV and résumé templates','قوالب السيرة الذاتية','next'],['Instagram post templates','قوالب منشورات إنستغرام','later'],['Content planner for social media','مخطط محتوى السوشيال ميديا','later'],['Business card templates','قوالب بطاقات الأعمال','later']]},
- {en:'Design packs',ar:'حزم تصميم',n:{en:'For brands and creators',ar:'للعلامات التجارية وصنّاع المحتوى'},items:[['Animated logo templates','قوالب شعارات متحركة','next'],['Icon and SVG packs','حزم أيقونات وملفات SVG','later'],['Brand identity kits','حزم الهوية التجارية','later']]},
- {en:'Students and kids',ar:'للطلاب والأطفال',n:{en:'Learning made lighter',ar:'تعلّم بشكل أسهل'},items:[['Study guide and flashcards','دليل الدراسة وبطاقات المراجعة','next'],['Exam countdown planner','مخطط العد التنازلي للامتحانات','later'],['Coloring pages for kids','صفحات تلوين للأطفال','later']]}
-];
-const TAG={en:{next:'Next',later:'Planned'},ar:{next:'التالي',later:'لاحقاً'}};
-function renderRoad(){const road=document.getElementById('road');road.innerHTML='';
-  ROAD.forEach(g=>{const c=document.createElement('div');c.className='col';
-    const h=document.createElement('h3');h.textContent=g[lang];const n=document.createElement('div');n.className='n';n.textContent=g.n[lang];
-    const ul=document.createElement('ul');g.items.forEach(it=>{const li=document.createElement('li');const s=document.createElement('span');s.textContent=lang==='ar'?it[1]:it[0];const t=document.createElement('span');t.className='tag '+it[2];t.textContent=TAG[lang][it[2]];li.append(s,t);ul.appendChild(li)});
-    c.append(h,n,ul);road.appendChild(c)})}
-
-/* ---------- header ---------- */
-const top=document.querySelector('.top'),mb=document.getElementById('menuBtn');
-const onScroll=()=>top.classList.toggle('scrolled',scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
-mb.addEventListener('click',()=>{const o=top.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
-document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>{top.classList.remove('open');mb.setAttribute('aria-expanded','false')}));
-addEventListener('keydown',e=>{if(e.key==='Escape'&&top.classList.contains('open')){top.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.focus()}});
-
-/* ---------- language ---------- */
-const AR={
- nav_work:'أعمالي',nav_tools:'أدوات ومخططات',nav_service:'حرّك شعارك',nav_next:'قريباً',nav_planners:'مخططات مجانية',
- kicker:'أستقبل مشاريع شعارات جديدة',
- hero_h:'شعارك يستحق أن يتحرك.',
- hero_p:'أصمم الشعارات وأحرّكها للعلامات التجارية وصنّاع المحتوى والمشاريع الصغيرة، وأبني أدوات ومخططات مجانية يمكنك استخدامها اليوم، بالعربي والإنجليزي.',
- cta_service:'حرّك شعاري',cta_tool:'جرّب Logo Motion مجاناً',sticker:'راسلني لعرض سعر',now_playing:'يعرض الآن:',
- work_h:'شعارات تنبض بالحياة.',work_p:'علامات تجارية تجريبية صممتها وحرّكتها لأُريك ما هو ممكن. اضغط على أي منها لإعادة الحركة.',
- w_nova:'شركة تقنية، تصميم تجريبي',w_tide:'مقهى على البحر، تصميم تجريبي',w_mbi:'علامتي الخاصة',replay:'إعادة',
- w_cta_h:'قد يكون شعارك التالي.',w_cta_p:'أرسل شعارك، أو فقط اسم علامتك وفكرتك. سأصممه أو أحرّكه لموقعك وتطبيقك ووسائل التواصل.',
- dm_ig:'راسلني على إنستغرام',dm_tt:'راسلني على تيك توك',
- tools_h:'أدوات ومخططات مجانية.',tools_p:'استخدمها بدون حساب. وإذا أفادتك، شاركها مع صديق.',
- live:'يعمل الآن ومجاني',
- lm_p:'ارفع شعارك، اختر طريقة حركته، ثم انسخ الكود أو حمّل فيديو. كل شيء يعمل داخل متصفحك.',
- lm_1:'نمط حركة، من الظهور والارتفاع إلى المدار والشروق',lm_2:'صيغ للكود: SVG متحرك وReact وReact Native',lm_3:'فيديو للريلز وتيك توك بمقاسات 9:16 و4:5 والمربع',
- lm_cta:'افتح Logo Motion',
- free:'تحميل مجاني',sp_h:'مخطط الدراسة',
- sp_p:'ملف PDF تفاعلي من 29 صفحة: 12 أسبوعاً للتخطيط، قوائم مهام، صفحات تحضير للامتحانات ومتتبع للعادات. اضغط على التبويبات للتنقل بين الأقسام على جهازك اللوحي، أو اطبعه.',
- pdf_en:'النسخة الإنجليزية',pdf_ar:'النسخة العربية',pdf_meta:'29 صفحة، بدون تواريخ',download:'تحميل',
- sp_note:'يعمل على GoodNotes وNotability ومعظم تطبيقات PDF.',
- svc_h:'كيف يتم مشروع الشعار.',svc_p:'سواء كنت تحتاج شعاراً جديداً أو تريد تحريك شعارك الحالي، الأمر يتم في ثلاث خطوات.',
- s1_h:'أرسل رسالة',s1_p:'شارك ملف شعارك، أو اسم علامتك والإحساس الذي تريده.',
- s2_h:'اختر الحركة',s2_p:'أرسل لك عدة أفكار للحركة، تختار واحدة ونطوّرها معاً.',
- s3_h:'استلم ملفاتك',s3_p:'فيديو للريلز وتيك توك، بالإضافة إلى كود لموقعك أو تطبيقك.',
- next_h:'قريباً.',next_p:'ما سأعمل عليه بعد مخطط الدراسة. العناصر المعلّمة بـ"التالي" قيد العمل، ويمكنك التصويت لتقديم أي منها.',
- f_h:'تابعني.',f_p:'حركات جديدة، مخططات مجانية وكواليس ما أبنيه، كل أسبوع. وصوّت على ما أصنعه بعد ذلك.',
- foot:'تصميم وتحريك الشعارات، أدوات ومخططات مجانية. بالعربي والإنجليزي.'
-};
-const EN={};document.querySelectorAll('[data-t]').forEach(el=>{if(!(el.dataset.t in EN))EN[el.dataset.t]=el.textContent});
-function setLang(l){lang=l;const d=l==='ar'?AR:EN;
-  document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';
-  document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(d[k])el.textContent=d[k]});
-  document.getElementById('lang').textContent=l==='ar'?'English':'عربي';
-  document.title=l==='ar'?'made by ilyas: تحريك الشعارات وأدوات ومخططات':'made by ilyas: logo motion, tools and planners';
-  labelChips();renderTicker();renderRoad();try{localStorage.setItem('mbi-lang',l)}catch(e){}}
+document.querySelectorAll('.js-ig-h,.js-tt-h').forEach(e=>e.textContent='@'+SOCIAL.instagram);
+document.getElementById('chz2').innerHTML=document.querySelector('.chz').outerHTML;
+document.getElementById('yr').textContent=new Date().getFullYear();
+const top_=document.getElementById('top');addEventListener('scroll',()=>top_.classList.toggle('s',scrollY>20),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const TICK={en:['Logo design','Logo animation','Brand kits','Menu design','Invitations','UI & web','Arabic & English'],ar:['تصميم شعارات','تحريك الشعارات','هوية للسوشال ميديا','تصميم منيو','دعوات','واجهات ومواقع','عربي وإنجليزي']};
+let lang='en';
+function ticker(){const r=document.getElementById('ticker');r.innerHTML='';const l=TICK[lang];[...l,...l,...l,...l].forEach(t=>{const s=document.createElement('span');s.textContent=t;r.appendChild(s)})}
+const AR={n1:'الخدمات',n2:'الأعمال',n3:'نصائح',n4:'أدوات مجانية',n5:'تواصل',cta_s:'ابدأ مشروعك',
+h_e:'مصمم ومبرمج',h_h:'تصميم جميل، <em>ويشتغل فعلاً.</em>',h_p:'أنا إلياس، مصمم ومطوّر React. أصمم شعارات، وأحرّكها، وأجهّز هويات وواجهات جاهزة للاستخدام، من بروفايل إنستغرام لحد تطبيقك.',h_c1:'راسلني "LOGO" ←',h_c2:'شوف الأعمال',
+st1:'أول أفكار للشعار',st2:'أفكار تختار منها',st3:'ملف في كل حزمة شعار',st4:'تصاميم باللغتين',
+sv_e:'الخدمات',sv_h:'شو بقدر أصمم لك.',sv_p:'اختار خدمة أو اجمع أكثر من وحدة. كل مشروع بيبدأ برسالة بسيطة.',
+s1_h:'تصميم شعار',s1_p:'3 أفكار خلال 24 ساعة، بعدها حزمة كاملة: SVG وPNG وPDF وأيقونة وملف هوية.',s1_d:'راسلني "LOGO"',
+s2_h:'تحريك الشعار',s2_p:'شعارك بيتحرك. للريلز ومقدمات تيك توك والمواقع وشاشات التطبيقات.',s2_d:'راسلني "MOTION"',
+s3_h:'هوية السوشال ميديا',s3_p:'قوالب بوستات وستوريات، أغلفة هايلايت وصورة بروفايل، كلها متناسقة.',s3_d:'راسلني "KIT"',
+s4_h:'تصميم منيو',s4_p:'منيو مطبوع، منيو رقمي بالـQR، وستوريات للعروض اليومية للمطاعم والكافيهات.',s4_d:'راسلني "MENU"',
+s5_h:'دعوات',s5_p:'أعراس، أعياد ميلاد وافتتاحات، مطبوعة وجاهزة للإرسال على واتساب.',s5_d:'راسلني "INVITE"',
+s6_h:'واجهات ومواقع',s6_p:'صفحات هبوط، شاشات تطبيقات ومواقع، تصميم وبرمجة بـReact.',s6_d:'راسلني "WEB"',
+w_e:'أعمال مختارة',w_h:'علامات صممتها.',w_p:'عميل حقيقي وعلامات تجريبية، لكل وحدة قصتها ولونها.',client:'عميل',k1:'تصوير',k2:'عناية بالبشرة · هوية',k3:'مطعم · منيو',k4:'بيتزا · إعادة تصميم',k5:'قهوة · تحريك شعار',k6:'تقنية · هوية',
+q_e:'رأي عميل',q_t:'«عجبني الشعار كثير! بسيط ونظيف وشكله حلو. عبّرت عن الفكرة تماماً بدون تعقيد، وكمان قدّرت السرعة اللي خلّصته فيها.»',q_c:'Chiizu · تصوير بورتريه وطبيعة',
+p_e:'طريقة العمل',p_h:'من رسالة لحد ملفاتك.',p1_h:'ابعت رسالة',p1_p:'اسم مشروعك، شو بتشتغل، والستايل اللي بتحبه. سطر واحد بكفي.',p2_h:'اختار فكرة',p2_p:'ببعتلك 3 أفكار خلال 24 ساعة. بتختار وحدة وبنحسّنها سوا.',p3_h:'استلم كل شي',p3_p:'حزمة جاهزة: كل الصيغ، نسخ للخلفيات الفاتحة والغامقة، صور بروفايل وملف هوية.',
+t_e:'نصائح مجانية',t_h:'كلام المصمم ← كود المبرمج.',t_p:'أكثر سلسلة انشافت على تيك توك. هاي عيّنة:',t1:'«خلّيها تبرز»',t2:'«أعطيها مساحة»',t3:'«خلّيها مقروءة»',t_c:'نصائح أكثر على تيك توك ←',
+f_e:'أدوات مجانية',f_h:'من صنعي، ومجانية إلك.',lm_h:'حرّك شعارك بثواني.',lm_p:'ارفع ملف SVG، اختار الحركة، وصدّر. مجاني، بدون تسجيل، وبيشتغل بالمتصفح.',lm_c:'افتح Logo Motion ←',sp_e:'مخطط الدراسة',sp_h:'نظّم فصلك الدراسي.',sp_p:'12 أسبوع، متتبع امتحانات وصفحات أهداف. للطباعة، بالعربي والإنجليزي.',
+c_e:'خلّينا نشتغل سوا',c_h:'عندك فكرة؟ خلّينا نحققها.',c_p:'ابعت "LOGO" أو "KIT" أو "MENU" أو "INVITE" أو "WEB"، وبرد عليك بأفكار.',c_c:'راسلني على إنستغرام ←',ft:'تصميم وبرمجة إلياس 🧡'};
+const EN={};document.querySelectorAll('[data-t]').forEach(e=>EN[e.dataset.t]=e.hasAttribute('data-html')?e.innerHTML:e.textContent);
+function setLang(l){lang=l;const d=l==='ar'?AR:EN;document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-t]').forEach(e=>{const v=d[e.dataset.t];if(v==null)return;if(e.hasAttribute('data-html'))e.innerHTML=v;else e.textContent=v});
+  document.getElementById('lang').textContent=l==='ar'?'English':'عربي';ticker();try{localStorage.setItem('mbi-lang',l)}catch(e){}}
 let saved='en';try{saved=localStorage.getItem('mbi-lang')||((navigator.language||'').startsWith('ar')?'ar':'en')}catch(e){}
-setLang(saved);
-document.getElementById('lang').addEventListener('click',()=>setLang(lang==='ar'?'en':'ar'));
-play(0);miniLoop();
-})();
+setLang(saved);document.getElementById('lang').addEventListener('click',()=>setLang(lang==='ar'?'en':'ar'));
 </script>
 </body>
 </html>
